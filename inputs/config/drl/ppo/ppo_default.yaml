@@ -1,0 +1,42 @@
+ # Default TRPO configurations
+agent: PPO_Agent
+
+n_env: 1
+
+# Policy and Value function NN sizes
+vf_nn: [64,64]
+pi_nn: [64,64]
+
+# NN activation function
+nn_activ: nn.Tanh
+
+# Policy to be used. Available: SPRPolicy, MlpPolicy, MlpLstmPolicy, MlpLnLstmPolicy
+#policy: SPRPolicy
+
+# Discount factor
+gamma: 0.99
+batch_size: 64
+n_steps: 2048
+learning_rate: 0.0003
+
+gae_lambda: 0.95
+clip_range: 0.2
+#clip_range_vf: None
+ent_coef: 0.0
+vf_coef: 0.5
+max_grad_norm: 0.5
+
+
+
+# (int) the verbosity level:
+# 0 none, 1 training information, 2 tensorflow debug
+verbose: 1
+
+# Episode Length
+episode_length: 20000    # Simulator timesteps
+
+# Reward history length
+reward_history_length: 1000
+
+# Testing duration in simulator timesteps
+testing_duration: 20000

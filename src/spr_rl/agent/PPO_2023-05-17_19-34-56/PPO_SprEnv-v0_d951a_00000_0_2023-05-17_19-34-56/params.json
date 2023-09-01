@@ -1,0 +1,30 @@
+{
+  "env": "SprEnv-v0",
+  "env_config": {
+    "params": "<spr_rl.agent.params.Params object at 0x000001D3AD04EF28>"
+  },
+  "exploration_config": {
+    "beta": 0.2,
+    "eta": 1.0,
+    "feature_dim": 288,
+    "feature_net_config": {
+      "fcnet_activation": "relu",
+      "fcnet_hiddens": []
+    },
+    "forward_net_activation": "relu",
+    "forward_net_hiddens": [
+      256
+    ],
+    "inverse_net_activation": "relu",
+    "inverse_net_hiddens": [
+      256
+    ],
+    "lr": 0.001,
+    "sub_exploration": {
+      "type": "StochasticSampling"
+    },
+    "type": "Curiosity"
+  },
+  "framework": "torch",
+  "num_workers": 0
+}

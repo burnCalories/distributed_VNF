@@ -1,0 +1,62 @@
+# Default TRPO configurations
+agent: DRDQN_Agent
+
+n_env: 1
+#
+# Policy and Value function NN sizes
+#vf_nn: [64,64]
+#pi_nn: [64,64]
+
+# NN activation function
+nn_activ: nn.Tanh
+
+# Policy to be used. Available: SPRPolicy, MlpPolicy, MlpLstmPolicy, MlpLnLstmPolicy
+policy: SPRPolicy
+
+# Discount factor
+#learning_rate: 0.0001
+#buffer_size: 1000000
+#learning_starts: 50000
+#gamma: 0.99
+#batch_size: 32
+#tau: 1.0
+#train_freq: 4
+#gradient_steps: 1
+##replay_buffer_class: Type[]
+##replay_buffer_kwargs: {'buffer_size': 100000}
+#optimize_memory_usage: True
+#target_update_interval: 10000
+#exploration_fraction: 0.1
+#exploration_initial_eps: 1.0
+#exploration_final_eps: 0.05
+#max_grad_norm: 10
+
+learning_rate: 0.00005
+buffer_size: 1000000  # 1e6
+learning_starts: 50000
+batch_size: 32
+tau: 1.0
+gamma: 0.99
+train_freq: 4
+gradient_steps: 1
+replay_buffer_class: None
+replay_buffer_kwargs: None
+optimize_memory_usage: False
+target_update_interval: 10000
+exploration_fraction: 0.005
+exploration_initial_eps: 1.0
+exploration_final_eps: 0.01
+max_grad_norm: 10
+
+# (int) the verbosity level:
+# 0 none, 1 training information, 2 tensorflow debug 
+verbose: 0
+
+# Episode Length
+episode_length: 20000    # Simulator timesteps
+
+# Reward history length
+reward_history_length: 1000
+
+# Testing duration in simulator timesteps
+testing_duration: 20000

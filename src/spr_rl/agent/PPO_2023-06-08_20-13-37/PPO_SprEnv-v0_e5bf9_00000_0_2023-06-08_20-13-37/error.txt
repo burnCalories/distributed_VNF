@@ -1,0 +1,74 @@
+Failure # 1 (occurred at 2023-06-08_20-13-41)
+Traceback (most recent call last):
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\tune\trial_runner.py", line 718, in _process_trial
+    results = self.trial_executor.fetch_result(trial)
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\tune\ray_trial_executor.py", line 688, in fetch_result
+    result = ray.get(trial_future[0], timeout=DEFAULT_GET_TIMEOUT)
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\_private\client_mode_hook.py", line 62, in wrapper
+    return func(*args, **kwargs)
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\worker.py", line 1494, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ValueError): [36mray::PPO.train_buffered()[39m (pid=14956, ip=192.168.1.6)
+  File "python\ray\_raylet.pyx", line 501, in ray._raylet.execute_task
+  File "python\ray\_raylet.pyx", line 451, in ray._raylet.execute_task.function_executor
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\_private\function_manager.py", line 563, in actor_method_executor
+    return method(__ray_actor, *args, **kwargs)
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\tune\trainable.py", line 173, in train_buffered
+    result = self.train()
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\rllib\agents\trainer.py", line 608, in train
+    raise e
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\rllib\agents\trainer.py", line 594, in train
+    result = Trainable.train(self)
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\tune\trainable.py", line 232, in train
+    result = self.step()
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\rllib\agents\trainer_template.py", line 173, in step
+    res = next(self.train_exec_impl)
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 756, in __next__
+    return next(self.built_iterator)
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 783, in apply_foreach
+    for item in it:
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 783, in apply_foreach
+    for item in it:
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 843, in apply_filter
+    for item in it:
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 843, in apply_filter
+    for item in it:
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 783, in apply_foreach
+    for item in it:
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 783, in apply_foreach
+    for item in it:
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 783, in apply_foreach
+    for item in it:
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 876, in apply_flatten
+    for item in it:
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 828, in add_wait_hooks
+    item = next(it)
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 783, in apply_foreach
+    for item in it:
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 783, in apply_foreach
+    for item in it:
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\util\iter.py", line 783, in apply_foreach
+    for item in it:
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\rllib\execution\rollout_ops.py", line 74, in sampler
+    yield workers.local_worker().sample()
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\rllib\evaluation\rollout_worker.py", line 726, in sample
+    batches = [self.input_reader.next()]
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\rllib\evaluation\sampler.py", line 99, in next
+    batches = [self.get_data()]
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\rllib\evaluation\sampler.py", line 226, in get_data
+    item = next(self.rollout_provider)
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\rllib\evaluation\sampler.py", line 616, in _env_runner
+    sample_collector=sample_collector,
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\rllib\evaluation\sampler.py", line 811, in _process_observations
+    policy_id).transform(raw_obs)
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\rllib\models\preprocessors.py", line 187, in transform
+    self.check_shape(observation)
+  File "D:\code\madrl-coordination\venv\lib\site-packages\ray\rllib\models\preprocessors.py", line 68, in check_shape
+    observation, self._obs_space)
+ValueError: ('Observation ({}) outside given space ({})!', array([ 0.       ,  1.       ,  0.       ,  0.       ,  0.       ,
+       -1.       , -0.5      ,  0.       , -0.5      , -1.       ,
+        0.6666667,  0.6666667, -1.       ,  0.91     ,  0.94     ,
+       -1.       ], dtype=float32), Box([-20. -20. -20. -20. -20. -20. -20. -20. -20. -20. -20. -20. -20. -20.
+ -20. -20. -20.], [1000. 1000. 1000. 1000. 1000. 1000. 1000. 1000. 1000. 1000. 1000. 1000.
+ 1000. 1000. 1000. 1000. 1000.], (17,), float32))
+
